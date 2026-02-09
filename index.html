@@ -960,6 +960,10 @@
     </div>
   </footer>
 
+  <!-- Formulaire contact : mettez ici votre ID Formspree (https://formspree.io → créer un formulaire, copier l'ID dans l'URL). Les mails arriveront sans serveur Node. -->
+  <script>
+    window.FORMSPREE_FORM_ID = ''; // ex: mqknjxyz
+  </script>
   <script>
     (function () {
       var ratingGroup = document.querySelector('.rating-group');
@@ -980,7 +984,10 @@
       }
     })();
     (function () {
-      var API_CONTACT = window.CONTACT_API_URL || '/api/contact';
+      var formspreeId = (window.FORMSPREE_FORM_ID && String(window.FORMSPREE_FORM_ID).trim()) ? String(window.FORMSPREE_FORM_ID).trim() : '';
+      var formEndpoint = formspreeId
+        ? 'https://formspree.io/f/' + formspreeId
+        : (window.CONTACT_API_URL || '/api/contact');
       var form = document.getElementById('form-contact');
       var messageEl = document.getElementById('contact-form-message');
       var submitBtn = document.getElementById('contact-submit');
@@ -1032,10 +1039,15 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Envoi en cours…';
 
-        fetch(API_CONTACT, {
+        var body = formspreeId
+          ? { _replyto: email, nom: nom, email: email, message: message }
+          : { nom: nom, email: email, message: message };
+        var headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
+
+        fetch(formEndpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ nom: nom, email: email, message: message })
+          headers: headers,
+          body: JSON.stringify(body)
         })
           .then(function (res) {
             return res.text().then(function (text) {
@@ -1046,11 +1058,11 @@
                 } catch (_) {}
               }
               if (!res.ok) {
-                var err = new Error(data && data.message ? data.message : 'service_indisponible');
-                err.apiMessage = data && data.message ? data.message : null;
+                var err = new Error(data && data.message ? data.message : (data && data.errors ? data.errors.map(function (e) { return e.message; }).join(', ') : 'service_indisponible'));
+                err.apiMessage = data && data.message ? data.message : (data && data.errors ? data.errors.map(function (e) { return e.message; }).join(', ') : null);
                 throw err;
               }
-              if (data && data.message && !data.success) {
+              if (data && data.message && data.success === false) {
                 throw new Error(data.message);
               }
               return data;
@@ -1063,7 +1075,7 @@
           .catch(function (err) {
             var msg = err.apiMessage || err.message || 'Une erreur est survenue. Réessayez ou contactez-nous par téléphone.';
             if (err.message === 'service_indisponible' || err.message === 'Failed to fetch') {
-              msg = 'Le formulaire n\'est pas disponible sur cette version du site. Contactez-nous par email : philippe.clemente@orange.fr ou par téléphone.';
+              msg = 'Impossible d\'envoyer. Vérifiez votre ID Formspree dans index.html (FORMSPREE_FORM_ID) ou contactez-nous : philippe.clemente@orange.fr / 06 14 10 55 02.';
             }
             showMessage(msg, true);
           })
