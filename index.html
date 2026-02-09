@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formation SST – Philippe Clemente | Sauveteur Secouriste du Travail | Bourgogne Franche-Comté</title>
+  <meta name="description" content="Formation SST et MAC SST en Bourgogne Franche-Comté. Formateur certifié INRS. Formation initiale 14h, recyclage 7h. Demande de devis sous 24h." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Charte graphique SST : professionnel, institutionnel, rassurant. Rouge secourisme maîtrisé, bleu marine INRS, blanc dominant. */
+    :root {
+      --white: #ffffff;
+      --bg: #f8fafc;
+      --bg-card: #ffffff;
+      --grey-border: #e2e8f0;
+      --grey-muted: #64748b;
+      --blue-marine: #1e3a5f;
+      --blue-marine-light: #2d4a6f;
+      --red-secours: #b91c1c;
+      --red-secours-soft: rgba(185, 28, 28, 0.08);
+      --green-prevention: #047857;
+      --green-soft: rgba(4, 120, 87, 0.08);
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --shadow: 0 1px 3px rgba(30, 58, 95, 0.06);
+      --shadow-card: 0 4px 12px rgba(30, 58, 95, 0.06);
+      --radius: 8px;
+      --space-section: 4rem;
+      --space-block: 1.5rem;
+    }
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 1rem;
+      min-height: 100vh;
+    }
+
+    /* ----- Hiérarchie typographique ----- */
+    h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; }
+    h2 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--blue-marine); }
+    h3 { font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem; color: var(--text); }
+    p { margin: 0 0 1rem; }
+
+    /* ----- Header fixe, clair ----- */
+    .header {
+      background: var(--white);
+      border-bottom: 1px solid var(--grey-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--blue-marine);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    .logo span { color: var(--red-secours); font-weight: 600; }
+    .logo:hover { color: var(--blue-marine-light); }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius);
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav a:hover { color: var(--blue-marine); background: var(--bg); }
+    .nav .btn-devis {
+      background: var(--red-secours);
+      color: var(--white) !important;
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+    .nav .btn-devis:hover { background: #991b1b; }
+
+    /* ----- Hero : slogan fort et rassurant + logo à gauche ----- */
+    .hero {
+      background: var(--blue-marine);
+      color: var(--white);
+      padding: 3.5rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      min-height: 280px;
+    }
+    .hero-logo {
+      flex-shrink: 0;
+    }
+    .hero-logo img {
+      display: block;
+      height: 120px;
+      width: auto;
+      max-width: 220px;
+      min-width: 140px;
+      object-fit: contain;
+      object-position: left center;
+    }
+    .hero-inner {
+      flex: 1;
+      min-width: 280px;
+      max-width: 680px;
+      text-align: left;
+    }
+    .hero .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1rem;
+    }
+    .hero h1 { color: var(--white); margin: 0 0 1rem; }
+    .hero p { color: rgba(255,255,255,0.92); margin: 0 0 1.75rem; font-size: 1.05rem; }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.5rem;
+      min-height: 44px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: var(--red-secours);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: #991b1b; box-shadow: 0 2px 8px rgba(185, 28, 28, 0.25); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.8);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+    /* ----- Container & sections : respiration visuelle ----- */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: var(--space-section) 0; }
+    .section-title { font-size: 1.5rem; font-weight: 700; color: var(--blue-marine); margin: 0 0 0.25rem; }
+    .section-subtitle { font-size: 1rem; color: var(--text-muted); margin: 0 0 2rem; line-height: 1.5; }
+
+    /* ----- Bloc intro / réassurance ----- */
+    .intro-block {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--grey-border);
+      border-left: 4px solid var(--blue-marine);
+    }
+    .intro-block p { margin: 0; }
+    .reassurance {
+      background: var(--green-soft);
+      border: 1px solid rgba(4, 120, 87, 0.2);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .reassurance strong { color: var(--green-prevention); }
+
+    /* ----- Quick links (accueil) ----- */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .quick-link-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid var(--grey-border);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .quick-link-card:hover { border-color: var(--blue-marine); box-shadow: var(--shadow-card); }
+    .quick-link-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--blue-marine); margin: 0 0 0.5rem; }
+    .quick-link-card p { margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+
+    /* ----- Bandeaux sections ----- */
+    .bandeau {
+      width: 100%;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--white);
+      background: var(--blue-marine);
+    }
+    .bandeau-inner { max-width: 720px; margin: 0 auto; }
+    .bandeau .badge { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 0.5rem; }
+    .bandeau h1 { font-size: clamp(1.4rem, 3vw, 1.75rem); margin: 0 0 0.5rem; color: var(--white); }
+    .bandeau p { margin: 0; font-size: 1rem; opacity: 0.92; }
+
+    /* ----- Cards formations : 14h / 7h, certificat 24 mois ----- */
+    .formations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .formation-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid var(--grey-border);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .formation-card:hover { border-color: var(--blue-marine); box-shadow: var(--shadow-card); }
+    .formation-card h3 { font-size: 1.2rem; font-weight: 600; color: var(--blue-marine); margin: 0 0 0.75rem; }
+    .formation-card .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .formation-card .duration,
+    .formation-card .validity {
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+    }
+    .formation-card .duration { background: var(--red-secours-soft); color: var(--red-secours); }
+    .formation-card .validity { background: var(--green-soft); color: var(--green-prevention); }
+    .formation-card ul { margin: 0 0 1rem; padding-left: 1.25rem; font-size: 0.95rem; color: var(--text); }
+    .formation-card li { margin-bottom: 0.35rem; }
+    .formation-card li::marker { color: var(--blue-marine); }
+    .formation-card .cta-link {
+      font-weight: 600;
+      color: var(--red-secours);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .formation-card .cta-link:hover { text-decoration: underline; }
+
+    /* ----- Objectifs / À qui s'adresse ----- */
+    .objectifs {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 2rem;
+      border: 1px solid var(--grey-border);
+    }
+    .objectifs h3 { font-size: 1.15rem; font-weight: 600; color: var(--blue-marine); margin: 0 0 0.75rem; }
+    .objectifs ul { margin: 0; padding-left: 1.25rem; color: var(--text); }
+    .objectifs li { margin-bottom: 0.4rem; }
+
+    /* ----- Tarifs ----- */
+    .tarifs-section { background: var(--bg); }
+    .tarifs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .tarif-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      border: 1px solid var(--grey-border);
+    }
+    .tarif-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--blue-marine); margin: 0 0 0.5rem; }
+    .tarif-card .price { font-size: 1.4rem; font-weight: 700; color: var(--blue-marine); margin: 0 0 0.5rem; }
+    .tarif-card small { font-size: 0.9rem; color: var(--text-muted); }
+    .tarif-card .note { font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--grey-border); }
+    .tarifs-cta { text-align: center; margin-top: 2rem; }
+
+    /* ----- Boutons CTA sobres ----- */
+    .btn-cta {
+      display: inline-block;
+      padding: 0.85rem 1.75rem;
+      min-height: 44px;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+    .btn-cta-primary { background: var(--red-secours); color: var(--white); }
+    .btn-cta-primary:hover { background: #991b1b; box-shadow: 0 2px 8px rgba(185, 28, 28, 0.2); }
+    .btn-cta-secondary { background: var(--blue-marine); color: var(--white); }
+    .btn-cta-secondary:hover { background: var(--blue-marine-light); }
+
+    /* ----- Bloc formateur : humain et crédible ----- */
+    .formateur-block {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: start;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      border: 1px solid var(--grey-border);
+    }
+    .formateur-block .photo {
+      width: 200px;
+      height: auto;
+      max-height: 280px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      object-position: top center;
+      border: 3px solid var(--grey-border);
+      justify-self: end;
+    }
+    .formateur-block h3 { font-size: 1.2rem; font-weight: 600; color: var(--blue-marine); margin: 0 0 0.25rem; }
+    .formateur-block .certif { font-size: 0.9rem; color: var(--green-prevention); font-weight: 600; margin-bottom: 0.75rem; }
+    .formateur-block p { margin: 0 0 0.75rem; font-size: 0.98rem; }
+    .formateur-block ul { margin: 0; padding-left: 1.25rem; font-size: 0.95rem; color: var(--text); }
+    .formateur-block li { margin-bottom: 0.35rem; }
+
+    /* ----- Contact : formulaire simple et rassurant ----- */
+    .contact-section { background: var(--bg); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .contact-info h3 { font-size: 1.15rem; font-weight: 600; color: var(--blue-marine); margin: 0 0 1rem; }
+    .contact-info p { margin: 0 0 0.5rem; color: var(--text); }
+    .contact-info a { color: var(--blue-marine); font-weight: 600; text-decoration: none; }
+    .contact-info a:hover { text-decoration: underline; }
+    .contact-form-box {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid var(--grey-border);
+    }
+    .contact-form-box h3 { font-size: 1.15rem; font-weight: 600; color: var(--blue-marine); margin: 0 0 1.25rem; }
+    .contact-form-box label { display: block; margin-bottom: 1rem; }
+    .contact-form-box label span { display: block; font-weight: 600; font-size: 0.9rem; color: var(--text); margin-bottom: 0.35rem; }
+    .contact-form-box input,
+    .contact-form-box textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      min-height: 44px;
+      border-radius: var(--radius);
+      border: 1px solid var(--grey-border);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+    .contact-form-box textarea { min-height: 120px; resize: vertical; }
+    .contact-form-box input:focus,
+    .contact-form-box textarea:focus {
+      outline: none;
+      border-color: var(--blue-marine);
+    }
+    .contact-form-box button {
+      background: var(--red-secours);
+      color: var(--white);
+      font-weight: 600;
+      border: none;
+      padding: 0.75rem 1.75rem;
+      min-height: 44px;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      margin-top: 0.25rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .contact-form-box button:hover { background: #991b1b; }
+    .contact-form-box button:disabled { opacity: 0.7; cursor: not-allowed; }
+    .contact-form-message {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .contact-form-message.success { background: var(--green-soft); border: 1px solid rgba(4, 120, 87, 0.3); color: var(--green-prevention); }
+    .contact-form-message.error { background: rgba(185, 28, 28, 0.08); border: 1px solid rgba(185, 28, 28, 0.3); color: var(--red-secours); }
+    .trust-note { font-size: 0.9rem; color: var(--text-muted); margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--grey-border); }
+
+    /* ----- Avis clients : commentaires et notation 1-5 ----- */
+    .avis-section { background: var(--bg); }
+    .avis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .avis-form-box {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid var(--grey-border);
+    }
+    .avis-form-box h3 { font-size: 1.15rem; font-weight: 600; color: var(--blue-marine); margin: 0 0 1.25rem; }
+    .avis-form-box label { display: block; margin-bottom: 1rem; }
+    .avis-form-box label span { display: block; font-weight: 600; font-size: 0.9rem; color: var(--text); margin-bottom: 0.35rem; }
+    .avis-form-box input,
+    .avis-form-box textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      min-height: 44px;
+      border-radius: var(--radius);
+      border: 1px solid var(--grey-border);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+    .avis-form-box textarea { min-height: 100px; resize: vertical; }
+    .avis-form-box .rating-group {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 0.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .avis-form-box .rating-group input { display: none; }
+    .avis-form-box .rating-group label.etoile {
+      cursor: pointer;
+      font-size: 1.75rem;
+      color: var(--grey-border);
+      transition: color 0.2s;
+      margin: 0;
+      padding: 0.25rem;
+    }
+    /* Survol : colorer jusqu'à l'étoile survolée (ordre DOM 5→1 + row-reverse = affichage 1→5) */
+    .avis-form-box .rating-group label.etoile:hover,
+    .avis-form-box .rating-group label.etoile:hover ~ label.etoile { color: #eab308; }
+    /* Sélection : colorer toutes les étoiles jusqu'à la note choisie (persiste au mouse leave) */
+    .avis-form-box .rating-group input:checked ~ label.etoile { color: #eab308; }
+    /* Survol prime sur la sélection quand la souris est sur une étoile */
+    .avis-form-box .rating-legend { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
+    .avis-list { margin-top: 0; }
+    .avis-list h3 { font-size: 1.15rem; font-weight: 600; color: var(--blue-marine); margin: 0 0 1rem; }
+    .avis-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--grey-border);
+    }
+    .avis-card .avis-note {
+      display: inline-flex;
+      gap: 0.15rem;
+      margin-bottom: 0.5rem;
+    }
+    .avis-card .avis-note span { color: #eab308; font-size: 1rem; }
+    .avis-card .avis-auteur { font-weight: 600; font-size: 0.9rem; color: var(--text); margin-bottom: 0.25rem; }
+    .avis-card .avis-texte { font-size: 0.95rem; color: var(--text); margin: 0; line-height: 1.5; }
+    @media (max-width: 768px) { .avis-grid { grid-template-columns: 1fr; } }
+
+    /* ----- Footer institutionnel ----- */
+    .footer {
+      background: var(--blue-marine);
+      color: rgba(255,255,255,0.9);
+      padding: 2rem 1.5rem;
+      margin-top: var(--space-section);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .footer-logo {
+      display: block;
+      height: 60px;
+      width: auto;
+      max-width: 180px;
+      min-width: 120px;
+      object-fit: contain;
+      object-position: left center;
+    }
+    .footer p { margin: 0; font-size: 0.95rem; }
+    .footer a { color: rgba(255,255,255,0.95); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    .footer-nav { display: flex; gap: 1.5rem; }
+    .footer-zone { font-size: 0.9rem; opacity: 0.9; margin-top: 0.25rem; }
+
+    /* ----- Pictogrammes sobres (texte sémantique) ----- */
+    .picto-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+
+    /* ----- Entraînement aux gestes ----- */
+    .entrainement-section { background: var(--bg); }
+
+    /* ----- Responsive mobile-first ----- */
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .section { padding: 2.5rem 0; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 2.5rem 1rem; gap: 1.5rem; min-height: auto; }
+      .hero-logo { width: 100%; display: flex; justify-content: flex-start; }
+      .hero-logo img { height: 90px; max-width: 180px; min-width: 120px; }
+      .formateur-block { grid-template-columns: 1fr; text-align: center; }
+      .formateur-block .photo { justify-self: center; margin: 0 auto; max-height: 260px; }
+      .nav a { padding: 0.6rem 0.75rem; }
+      .btn { padding: 0.75rem 1.25rem; min-height: 48px; }
+      .footer-logo { height: 50px; max-width: 150px; min-width: 100px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo SST (bannière + footer) -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a href="#accueil" class="logo">Formation <span>SST</span></a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#accueil">Accueil</a>
+        <a href="#formations">Formations</a>
+        <a href="#entrainement">Entraînement</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#formateur">Formateur</a>
+        <a href="#avis">Avis clients</a>
+        <a href="#contact" class="btn-devis">Demander un devis</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="accueil" class="hero" aria-label="Accueil">
+    <div class="hero-logo">
+      <img src="image/logo.png" alt="Formation SST – Secours et prévention" width="220" height="120" loading="eager" decoding="async">
+    </div>
+    <div class="hero-inner">
+      <p class="badge">Sauveteur Secouriste du Travail</p>
+      <h1>Prévention et gestes qui sauvent : une formation pour agir en confiance</h1>
+      <p>La formation SST permet à vos équipes d’intervenir efficacement en cas d’accident ou de malaise au travail, tout en participant à la prévention des risques. Reconnue par l’INRS, elle s’adresse aux entreprises et à tous les professionnels. Bourgogne Franche-Comté.</p>
+      <div class="hero-btns">
+        <a href="#formations" class="btn btn-primary">Découvrir les formations</a>
+        <a href="#contact" class="btn btn-outline">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" aria-labelledby="titre-bienvenue">
+      <div class="container">
+        <h2 id="titre-bienvenue" class="section-title">Formation SST : prévention et secours en entreprise</h2>
+        <p class="section-subtitle">Formation initiale et recyclage MAC SST avec un formateur certifié INRS. Interventions en entreprise et sessions sur mesure.</p>
+        <div class="intro-block">
+          <p>Le <strong>Sauveteur Secouriste du Travail (SST)</strong> est un acteur de la prévention et du secours en entreprise. La formation permet d’acquérir les réflexes pour <strong>protéger, examiner, alerter et secourir</strong> une victime, et de contribuer à la prévention des risques professionnels. Accessible à tous, sans prérequis.</p>
+        </div>
+        <div class="reassurance">
+          <strong>Formation reconnue par l’INRS</strong>, au service de la prévention et de la sécurité au travail. Certificat délivré par le réseau Assurance maladie risques professionnels / INRS.
+        </div>
+        <div class="quick-links">
+          <a href="#formations" class="quick-link-card">
+            <h3>Nos formations</h3>
+            <p>Formation SST initiale (14 h) et MAC SST (7 h). Certificat valable 24 mois.</p>
+          </a>
+          <a href="#tarifs" class="quick-link-card">
+            <h3>Tarifs</h3>
+            <p>Tarifs clairs, devis personnalisé pour les groupes et entreprises.</p>
+          </a>
+          <a href="#formateur" class="quick-link-card">
+            <h3>Votre formateur</h3>
+            <p>Philippe Clemente, formateur SST certifié INRS depuis plus de 10 ans.</p>
+          </a>
+          <a href="#entrainement" class="quick-link-card">
+            <h3>Entraînement aux gestes</h3>
+            <p>Maintien des réflexes entre deux formations : demi-journée ou journée 100 % pratique.</p>
+          </a>
+          <a href="#contact" class="quick-link-card">
+            <h3>Contact & devis</h3>
+            <p>Une question ou un devis ? Réponse sous 24 h.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="formations" class="bandeau" aria-label="Formations">
+    <div class="bandeau-inner">
+      <p class="badge">Formations</p>
+      <h1>Formation SST initiale et MAC SST</h1>
+      <p>Le secours à la personne ne s’improvise pas. Une formation pour réagir avec les bons gestes.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-subtitle" style="margin-top: 0;">Deux parcours pour répondre à vos besoins : formation initiale ou recyclage. Certificat SST valable 24 mois.</p>
+      <div class="intro-block">
+        <p>La formation SST prépare les salariés à réagir face à un accident ou une situation d’urgence sur le lieu de travail. Elle associe <strong>gestes de premiers secours</strong> et <strong>prévention des risques professionnels</strong>, dans un cadre pédagogique adapté à l’entreprise.</p>
+      </div>
+      <div class="formations-grid">
+        <article class="formation-card">
+          <h3>Formation SST initiale</h3>
+          <div class="meta">
+            <span class="duration">14 h (2 jours)</span>
+            <span class="validity">Certificat 24 mois</span>
+          </div>
+          <p>Pour toute personne qui souhaite devenir Sauveteur Secouriste du Travail, sans prérequis.</p>
+          <ul>
+            <li>Repérer les situations dangereuses et relayer les informations</li>
+            <li>Participer à la prévention et à la protection</li>
+            <li>Alerter les secours adaptés</li>
+            <li>Maîtriser les gestes de premiers secours (hémorragie, étouffement, massage cardiaque, DAE)</li>
+          </ul>
+          <p>Certificat SST délivré par le réseau Assurance maladie / INRS, équivalence PSC1.</p>
+          <a href="#contact" class="cta-link">Réserver une formation →</a>
+        </article>
+        <article class="formation-card">
+          <h3>MAC SST – Recyclage</h3>
+          <div class="meta">
+            <span class="duration">7 h (1 journée)</span>
+            <span class="validity">Certificat 24 mois</span>
+          </div>
+          <p>Pour les titulaires du certificat SST qui doivent renouveler leur validité tous les 24 mois.</p>
+          <ul>
+            <li>Rappels et actualisation des gestes de secours</li>
+            <li>Mises à jour réglementaires et procédures</li>
+            <li>Entraînements en situations concrètes</li>
+            <li>Évaluation certificative pour prolonger le certificat</li>
+          </ul>
+          <p>Le MAC SST est indispensable pour conserver votre certification à jour.</p>
+          <a href="#contact" class="cta-link">Réserver une formation →</a>
+        </article>
+      </div>
+      <div class="objectifs">
+        <h3>À qui s’adresse la formation SST ?</h3>
+        <ul>
+          <li>À tout salarié qui souhaite contribuer à la prévention des risques professionnels et intervenir face à un accident du travail.</li>
+          <li>Aucun prérequis : la formation est accessible à tous les profils et secteurs (industrie, tertiaire, enseignement, etc.).</li>
+        </ul>
+      </div>
+      <div class="tarifs-cta">
+        <a href="#tarifs" class="btn-cta btn-cta-secondary">Voir les tarifs</a>
+        <a href="#contact" class="btn-cta btn-cta-primary" style="margin-left: 0.75rem;">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="entrainement" class="bandeau" aria-label="Entraînement aux gestes">
+    <div class="bandeau-inner">
+      <p class="badge">Entraînement pratique</p>
+      <h1>Garder les bons réflexes entre deux formations</h1>
+      <p>Une approche 100 % pratique : mises en situation réalistes et ateliers concrets pour ne pas perdre les automatismes avant le prochain MAC SST.</p>
+    </div>
+  </section>
+
+  <section class="section entrainement-section">
+    <div class="container">
+      <h2 class="section-title">Pourquoi s’entraîner régulièrement aux gestes de secours ?</h2>
+      <p class="section-subtitle" style="margin-top: 0;">Entre la formation initiale ou le MAC SST et la date de renouvellement du certificat, les réflexes peuvent s’estomper. Un entraînement régulier permet de les consolider et d’intervenir avec confiance le jour J.</p>
+      <div class="intro-block">
+        <p>Les gestes qui sauvent ne s’oublient pas… à condition de les pratiquer. <strong>L’entraînement régulier</strong> aux situations d’urgence permet aux salariés formés SST de <strong>maintenir leurs acquis</strong>, de gagner en réactivité et de travailler en équipe dans un cadre sécurisé. Nous proposons des sessions dédiées, 100 % pratiques, basées sur des mises en situation réalistes et des ateliers concrets, sans apport théorique supplémentaire : uniquement du terrain.</p>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 2rem;">L’offre d’entraînement</h2>
+      <div class="formations-grid" style="margin-top: 1rem;">
+        <article class="formation-card">
+          <h3>Demi-journée d’exercices pratiques</h3>
+          <div class="meta">
+            <span class="duration">3 à 4 h</span>
+            <span class="validity">Sur site ou en centre</span>
+          </div>
+          <p>Une session courte et intense pour revoir les gestes essentiels et enchaîner plusieurs mises en situation. Idéal pour un rappel annuel ou une équipe déjà à l’aise.</p>
+          <ul>
+            <li>Rappel des gestes (protection, alerte, secours)</li>
+            <li>Ateliers malaises, hémorragie, étouffement</li>
+            <li>Exercices arrêt cardiaque et DAE</li>
+            <li>Debriefing et points d’amélioration</li>
+          </ul>
+          <a href="#contact" class="cta-link">Demander un devis →</a>
+        </article>
+        <article class="formation-card">
+          <h3>Journée complète : exercices et mises en situation</h3>
+          <div class="meta">
+            <span class="duration">6 à 7 h</span>
+            <span class="validity">Sur site ou en centre</span>
+          </div>
+          <p>Une journée immersive pour enchaîner ateliers et scénarios variés, dans des conditions proches du réel. Recommandé pour les équipes qui souhaitent renforcer leur réactivité et leur travail en équipe.</p>
+          <ul>
+            <li>Tous les gestes de base + scénarios complexes</li>
+            <li>Accident du travail, chute, malaise, arrêt cardiaque</li>
+            <li>Protection, examen, alerte, secours en conditions réalistes</li>
+            <li>Travail en binôme / équipe et debriefing détaillé</li>
+          </ul>
+          <a href="#contact" class="cta-link">Demander un devis →</a>
+        </article>
+      </div>
+
+      <div class="objectifs" style="margin-top: 2rem;">
+        <h3>Objectifs pédagogiques</h3>
+        <ul>
+          <li><strong>Maintien des acquis</strong> : consolider les gestes appris en formation initiale ou en MAC SST.</li>
+          <li><strong>Confiance</strong> : agir sans hésitation face à une situation d’urgence.</li>
+          <li><strong>Automatismes</strong> : intégrer la démarche « protéger, examiner, alerter, secourir » sans y réfléchir.</li>
+          <li><strong>Réactivité</strong> : réduire le temps de réaction et optimiser les premiers gestes.</li>
+          <li><strong>Travail en équipe</strong> : coordination entre SST, alerte aux secours et prise en charge de la victime.</li>
+        </ul>
+      </div>
+
+      <div class="objectifs" style="margin-top: 1.5rem;">
+        <h3>Exemples de mises en situation et ateliers pratiques</h3>
+        <ul>
+          <li><strong>Malaises</strong> : inconfort, malaise vagal, diabète, crise d’épilepsie — positionnement, surveillance, alerte.</li>
+          <li><strong>Arrêt cardiaque</strong> : massage cardiaque, utilisation du DAE, relais avec les secours.</li>
+          <li><strong>Hémorragie</strong> : compression, pansement, position d’attente.</li>
+          <li><strong>Étouffement</strong> : adulte et enfant — techniques de désobstruction.</li>
+          <li><strong>Accident du travail</strong> : chute, coupure, brûlure — protection de la zone, examen, alerte, gestes de secours.</li>
+          <li><strong>Protection, alerte, secours</strong> : scénarios complets où les stagiaires enchaînent repérage du danger, sécurisation, examen de la victime, transmission de l’alerte et gestes adaptés.</li>
+        </ul>
+      </div>
+      <p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text);">Ces ateliers sont animés sur site ou en centre, avec du matériel pédagogique adapté (mannequins, DAE d’entraînement, maquillage de simulation si besoin).</p>
+
+      <div class="reassurance" style="margin-top: 2rem;">
+        <h3 style="margin-bottom: 0.75rem; font-size: 1.15rem;">Bénéfices pour l’entreprise et les salariés</h3>
+        <ul style="margin: 0; padding-left: 1.25rem;">
+          <li><strong>Sécurité</strong> : des équipes prêtes à réagir en cas d’accident ou de malaise.</li>
+          <li><strong>Efficacité</strong> : premiers gestes corrects et rapides, meilleure coordination avec les secours.</li>
+          <li><strong>Conformité</strong> : renforcement de la politique de prévention et de la culture sécurité.</li>
+          <li><strong>Sérénité</strong> : salariés et encadrants plus confiants au quotidien.</li>
+        </ul>
+      </div>
+
+      <div class="tarifs-cta" style="margin-top: 2rem;">
+        <p class="section-subtitle" style="margin-bottom: 1rem;">Vous souhaitez organiser une session d’entraînement pour vos équipes SST ? Demandez un devis personnalisé ou contactez-nous pour en discuter.</p>
+        <a href="#contact" class="btn-cta btn-cta-primary">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="tarifs" class="bandeau" aria-label="Tarifs">
+    <div class="bandeau-inner">
+      <p class="badge">Tarifs</p>
+      <h1>Tarifs des formations SST</h1>
+      <p>Tarifs clairs, adaptés aux entreprises et aux particuliers. Devis personnalisé sur demande.</p>
+    </div>
+  </section>
+
+  <section class="section tarifs-section">
+    <div class="container">
+      <p class="section-subtitle" style="margin-top: 0;">Devis personnalisé pour les groupes et formations sur site. Réponse sous 24 h.</p>
+      <div class="tarifs-grid">
+        <div class="tarif-card">
+          <h3>Formation initiale SST (14 h)</h3>
+          <p class="price">230 € HT / personne</p>
+          <small>Sessions intra-entreprise (min. 4 à 5 personnes selon localisation). Groupe 8–10 personnes : forfait 1 500 € HT.</small>
+          <p class="note">Supports pédagogiques, matériel, déplacement en Bourgogne Franche-Comté inclus.</p>
+        </div>
+        <div class="tarif-card">
+          <h3>MAC SST – Recyclage (7 h)</h3>
+          <p class="price">110 € HT / personne</p>
+          <small>Groupe 8–10 personnes : forfait 700 € HT.</small>
+          <p class="note">Actualisation des compétences et délivrance du nouveau certificat SST.</p>
+        </div>
+        <div class="tarif-card">
+          <h3>Formations sur mesure</h3>
+          <p class="price">Sur devis</p>
+          <small>Interventions en entreprise, groupes importants, besoins spécifiques. Proposition sous 24 h.</small>
+          <p class="note">Frais de déplacement en province : nous consulter.</p>
+        </div>
+      </div>
+      <div class="tarifs-cta">
+        <a href="#contact" class="btn-cta btn-cta-primary">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="formateur" class="bandeau" aria-label="Formateur">
+    <div class="bandeau-inner">
+      <p class="badge">Formateur</p>
+      <h1>Votre formateur</h1>
+      <p>Un expert certifié à votre écoute, pour des formations pragmatiques et adaptées à votre secteur.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="formateur-block">
+        <div>
+          <h3>Philippe Clemente</h3>
+          <p class="certif">Formateur SST certifié INRS / CARSAT</p>
+          <p>Formateur SST depuis plus de 10 ans, Philippe Clemente accompagne les entreprises et les particuliers dans l’acquisition des gestes qui sauvent et dans la prévention des risques professionnels. Pédagogie concrète, mises en situation réalistes et suivi personnalisé pour que chaque stagiaire reparte en confiance.</p>
+          <ul>
+            <li>Certification officielle INRS et recyclage à jour</li>
+            <li>Expérience en milieu industriel et tertiaire</li>
+            <li>Interventions intra et inter-entreprises</li>
+            <li>Zone d’intervention : Bourgogne Franche-Comté</li>
+          </ul>
+          <p style="margin-top: 1rem;"><a href="#formations" class="cta-link">Voir les formations →</a></p>
+          <p><a href="#contact" class="btn-cta btn-cta-primary" style="display: inline-block; margin-top: 0.5rem;">Réserver une formation</a></p>
+        </div>
+        <img src="image/formateur.jpg" alt="Philippe Clemente, formateur SST" class="photo" width="200" height="280" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="avis" class="bandeau" aria-label="Avis clients">
+    <div class="bandeau-inner">
+      <p class="badge">Avis clients</p>
+      <h1>Commentaires et notes sur la formation</h1>
+      <p>Les stagiaires peuvent noter la formation de 1 à 5 et laisser un commentaire.</p>
+    </div>
+  </section>
+
+  <section class="section avis-section">
+    <div class="container">
+      <div class="avis-grid">
+        <div class="avis-form-box">
+          <h3>Donner votre avis</h3>
+          <form id="form-avis" action="#" method="post">
+            <label>
+              <span>Votre nom (optionnel)</span>
+              <input type="text" name="nom" placeholder="Votre nom ou prénom" />
+            </label>
+            <label>
+              <span>Note de la formation (1 à 5)</span>
+              <div class="rating-group" role="radiogroup" aria-label="Note de 1 à 5 étoiles">
+                <input type="radio" name="note" id="note-5" value="5" aria-label="5 étoiles">
+                <label for="note-5" class="etoile" title="5 étoiles">★</label>
+                <input type="radio" name="note" id="note-4" value="4" aria-label="4 étoiles">
+                <label for="note-4" class="etoile" title="4 étoiles">★</label>
+                <input type="radio" name="note" id="note-3" value="3" aria-label="3 étoiles">
+                <label for="note-3" class="etoile" title="3 étoiles">★</label>
+                <input type="radio" name="note" id="note-2" value="2" aria-label="2 étoiles">
+                <label for="note-2" class="etoile" title="2 étoiles">★</label>
+                <input type="radio" name="note" id="note-1" value="1" required aria-label="1 étoile">
+                <label for="note-1" class="etoile" title="1 étoile">★</label>
+              </div>
+              <p class="rating-legend">1 = Très insatisfait · 5 = Très satisfait</p>
+            </label>
+            <label>
+              <span>Votre commentaire</span>
+              <textarea name="commentaire" rows="4" placeholder="Partagez votre expérience de la formation SST..." required></textarea>
+            </label>
+            <button type="submit" class="btn-cta btn-cta-primary" style="margin-top: 0.5rem;">Publier mon avis</button>
+          </form>
+        </div>
+        <div class="avis-list">
+          <h3>Avis des clients</h3>
+          <div class="avis-card">
+            <div class="avis-note" aria-hidden="true"><span>★★★★★</span></div>
+            <p class="avis-auteur">Marie L.</p>
+            <p class="avis-texte">Formation très claire et pratique. Le formateur sait mettre en confiance. Je recommande.</p>
+          </div>
+          <div class="avis-card">
+            <div class="avis-note" aria-hidden="true"><span>★★★★☆</span></div>
+            <p class="avis-auteur">Thomas B.</p>
+            <p class="avis-texte">Bonne formation SST, les mises en situation sont réalistes. Recyclage bien organisé.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="bandeau" aria-label="Contact">
+    <div class="bandeau-inner">
+      <p class="badge">Contact</p>
+      <h1>Contact & demande de devis</h1>
+      <p>Une question, une session à planifier ou un devis sur mesure ? Réponse sous 24 h.</p>
+    </div>
+  </section>
+
+  <section class="section contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Coordonnées</h3>
+          <p><strong>Email :</strong> <a href="mailto:philippe.clemente@orange.fr">philippe.clemente@orange.fr</a></p>
+          <p><strong>Téléphone :</strong> <a href="tel:+33614105502">06 14 10 55 02</a></p>
+          <p><strong>Zone d’intervention :</strong> Bourgogne Franche-Comté</p>
+          <p class="trust-note">Vos données restent strictement confidentielles. Réponse rapide assurée.</p>
+        </div>
+        <div class="contact-form-box">
+          <h3>Demander un devis</h3>
+          <div id="contact-form-message" class="contact-form-message" role="status" aria-live="polite" hidden></div>
+          <form id="form-contact" action="#" method="post" novalidate>
+            <label>
+              <span>Nom</span>
+              <input type="text" name="nom" required placeholder="Votre nom" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required placeholder="votre@email.fr" />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" required rows="4" placeholder="Formation souhaitée, nombre de personnes, lieu..."></textarea>
+            </label>
+            <button type="submit" id="contact-submit">Envoyer ma demande</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <img src="image/logo.png" alt="Formation SST" class="footer-logo" width="160" height="56" loading="lazy" decoding="async">
+      </div>
+      <div>
+        <p>© 2025 Philippe Clemente – Formation SST. Formateur certifié INRS.</p>
+        <p class="footer-zone">Zone d’intervention : Bourgogne Franche-Comté</p>
+      </div>
+      <nav class="footer-nav" aria-label="Pied de page">
+        <a href="#formations">Formations</a>
+        <a href="#entrainement">Entraînement</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#avis">Avis clients</a>
+        <a href="#contact">Contact</a>
+        <a href="mentions-legales-confidentialite-cgu.html">Mentions légales &amp; CGU</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var ratingGroup = document.querySelector('.rating-group');
+      var formAvis = document.getElementById('form-avis');
+      if (ratingGroup && formAvis) {
+        var noteInputs = formAvis.querySelectorAll('input[name="note"]');
+        ratingGroup.addEventListener('keydown', function (e) {
+          var key = e.key;
+          if (key !== 'ArrowLeft' && key !== 'ArrowRight' && key !== 'ArrowUp' && key !== 'ArrowDown') return;
+          e.preventDefault();
+          var current = parseInt(formAvis.querySelector('input[name="note"]:checked')?.value || 0, 10);
+          var next = current;
+          if (key === 'ArrowRight' || key === 'ArrowDown') next = Math.min(5, current + 1);
+          if (key === 'ArrowLeft' || key === 'ArrowUp') next = Math.max(1, current - 1);
+          var radio = formAvis.querySelector('input[name="note"][value="' + next + '"]');
+          if (radio) { radio.checked = true; radio.focus(); }
+        });
+      }
+    })();
+    (function () {
+      var API_CONTACT = window.CONTACT_API_URL || '/api/contact';
+      var form = document.getElementById('form-contact');
+      var messageEl = document.getElementById('contact-form-message');
+      var submitBtn = document.getElementById('contact-submit');
+
+      function showMessage(text, isError) {
+        messageEl.textContent = text;
+        messageEl.className = 'contact-form-message ' + (isError ? 'error' : 'success');
+        messageEl.hidden = false;
+      }
+
+      function hideMessage() {
+        messageEl.hidden = true;
+      }
+
+      function validateEmail(email) {
+        var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).trim());
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        hideMessage();
+
+        var nom = (form.querySelector('[name="nom"]') || {}).value;
+        var email = (form.querySelector('[name="email"]') || {}).value;
+        var message = (form.querySelector('[name="message"]') || {}).value;
+
+        nom = nom ? nom.trim() : '';
+        email = email ? email.trim() : '';
+        message = message ? message.trim() : '';
+
+        if (!nom) {
+          showMessage('Veuillez indiquer votre nom.', true);
+          return;
+        }
+        if (!email) {
+          showMessage('Veuillez indiquer votre adresse email.', true);
+          return;
+        }
+        if (!validateEmail(email)) {
+          showMessage('Veuillez saisir une adresse email valide.', true);
+          return;
+        }
+        if (!message) {
+          showMessage('Veuillez saisir votre message.', true);
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi en cours…';
+
+        fetch(API_CONTACT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nom: nom, email: email, message: message })
+        })
+          .then(function (res) {
+            return res.text().then(function (text) {
+              var data = null;
+              if (text && (text.trim().charAt(0) === '{' || text.trim().charAt(0) === '[')) {
+                try {
+                  data = JSON.parse(text);
+                } catch (_) {}
+              }
+              if (!res.ok) {
+                var err = new Error(data && data.message ? data.message : 'service_indisponible');
+                err.apiMessage = data && data.message ? data.message : null;
+                throw err;
+              }
+              if (data && data.message && !data.success) {
+                throw new Error(data.message);
+              }
+              return data;
+            });
+          })
+          .then(function () {
+            showMessage('Votre message a bien été envoyé. Nous vous répondrons sous 24 h.');
+            form.reset();
+          })
+          .catch(function (err) {
+            var msg = err.apiMessage || err.message || 'Une erreur est survenue. Réessayez ou contactez-nous par téléphone.';
+            if (err.message === 'service_indisponible' || err.message === 'Failed to fetch') {
+              msg = 'Le formulaire n\'est pas disponible sur cette version du site. Contactez-nous par email : philippe.clemente@orange.fr ou par téléphone.';
+            }
+            showMessage(msg, true);
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Envoyer ma demande';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

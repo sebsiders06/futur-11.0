@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentions légales & CGU – Formation SST Philippe Clemente</title>
+  <meta name="description" content="Mentions légales, politique de confidentialité et conditions générales d'utilisation du site Formation SST Philippe Clemente." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #ffffff;
+      --bg: #f8fafc;
+      --bg-card: #ffffff;
+      --grey-border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --blue-marine: #1e3a5f;
+      --blue-marine-light: #2d4a6f;
+      --red-secours: #b91c1c;
+      --radius: 8px;
+      --shadow: 0 1px 3px rgba(30, 58, 95, 0.06);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 1rem;
+      min-height: 100vh;
+    }
+    h1 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; }
+    h2 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 0.75rem; color: var(--blue-marine); }
+    h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; color: var(--text); }
+    p { margin: 0 0 0.75rem; }
+    ul { margin: 0 0 0.75rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.35rem; }
+
+    .header {
+      background: var(--white);
+      border-bottom: 1px solid var(--grey-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--blue-marine);
+      text-decoration: none;
+    }
+    .logo span { color: var(--red-secours); font-weight: 600; }
+    .logo:hover { color: var(--blue-marine-light); }
+    .nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius);
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav a:hover { color: var(--blue-marine); background: var(--bg); }
+
+    .bandeau {
+      width: 100%;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--white);
+      background: var(--blue-marine);
+    }
+    .bandeau-inner { max-width: 720px; margin: 0 auto; }
+    .bandeau h1 { margin: 0; color: var(--white); }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .legal-block {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--grey-border);
+    }
+    .legal-block h2:first-child { margin-top: 0; }
+
+    .footer {
+      background: var(--blue-marine);
+      color: rgba(255,255,255,0.9);
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer p { margin: 0; font-size: 0.95rem; }
+    .footer a { color: rgba(255,255,255,0.95); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    .footer-nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .back-home {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.25rem;
+      background: var(--blue-marine);
+      color: var(--white) !important;
+      font-weight: 600;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .back-home:hover { background: var(--blue-marine-light); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Formation <span>SST</span></a>
+      <nav class="nav" aria-label="Navigation">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#formations">Formations</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="bandeau" aria-label="Mentions légales">
+    <div class="bandeau-inner">
+      <h1>Mentions légales, confidentialité & CGU</h1>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="legal-block">
+      <h2>1. Mentions légales</h2>
+      <h3>Éditeur du site</h3>
+      <p><strong>Philippe Clemente</strong><br>
+      Formateur SST certifié INRS<br>
+      Zone d'intervention : Bourgogne Franche-Comté</p>
+
+      <h3>Contact</h3>
+      <p><strong>Email :</strong> <a href="mailto:philippe.clemente@orange.fr">philippe.clemente@orange.fr</a><br>
+      <strong>Téléphone :</strong> <a href="tel:+33614105502">06 14 10 55 02</a></p>
+
+      <h3>Hébergement</h3>
+      <p>Le site est hébergé conformément aux dispositions en vigueur. Pour toute question relative à l'hébergement, veuillez nous contacter.</p>
+
+      <h3>Propriété intellectuelle</h3>
+      <p>L'ensemble du contenu de ce site (textes, images, logos) est protégé par le droit d'auteur. Toute reproduction ou utilisation non autorisée est interdite.</p>
+    </div>
+
+    <div class="legal-block">
+      <h2>2. Politique de confidentialité</h2>
+      <p>Vos données personnelles sont traitées avec la plus grande confidentialité, dans le cadre des demandes de devis et des échanges liés aux formations SST.</p>
+
+      <h3>Données collectées</h3>
+      <p>Les données collectées via le formulaire de contact (nom, email, message) sont utilisées uniquement pour répondre à vos demandes de devis ou d'information.</p>
+
+      <h3>Utilisation des données</h3>
+      <p>Vos données ne sont ni vendues ni cédées à des tiers. Elles servent uniquement à traiter vos demandes et à vous recontacter si nécessaire.</p>
+
+      <h3>Vos droits (RGPD)</h3>
+      <p>Conformément au Règlement général sur la protection des données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ces droits, contactez-nous à : <a href="mailto:philippe.clemente@orange.fr">philippe.clemente@orange.fr</a></p>
+    </div>
+
+    <div class="legal-block">
+      <h2>3. Conditions générales d'utilisation (CGU)</h2>
+      <p>L'accès et l'utilisation de ce site sont soumis aux présentes conditions générales d'utilisation.</p>
+
+      <h3>Acceptation</h3>
+      <p>En accédant au site, vous acceptez sans réserve les présentes CGU.</p>
+
+      <h3>Contenu du site</h3>
+      <p>Les informations présentées sur ce site sont fournies à titre indicatif. Nous nous efforçons de les maintenir à jour, mais ne pouvons garantir leur exhaustivité ou leur exactitude à tout moment.</p>
+
+      <h3>Liens</h3>
+      <p>Ce site peut contenir des liens vers des sites externes. Nous déclinons toute responsabilité quant au contenu de ces sites.</p>
+
+      <h3>Modifications</h3>
+      <p>Les mentions légales, la politique de confidentialité et les CGU peuvent être modifiées à tout moment. La version en vigueur est celle publiée sur cette page.</p>
+    </div>
+
+    <a href="index.html" class="back-home">← Retour à l'accueil</a>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <p>© 2025 Philippe Clemente – Formation SST. Formateur certifié INRS.</p>
+      <nav class="footer-nav" aria-label="Pied de page">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#formations">Formations</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="mentions-legales-confidentialite-cgu.html">Mentions légales &amp; CGU</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
