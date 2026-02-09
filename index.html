@@ -960,9 +960,10 @@
     </div>
   </footer>
 
-  <!-- Formulaire contact : mettez ici votre ID Formspree (https://formspree.io → créer un formulaire, copier l'ID dans l'URL). Les mails arriveront sans serveur Node. -->
+  <!-- Formulaire contact : Formspree (ID ci‑dessous), serveur /api/contact, ou envoi par mailto en secours. -->
   <script>
-    window.FORMSPREE_FORM_ID = ''; // ex: mqknjxyz
+    window.FORMSPREE_FORM_ID = ''; // ex: mqknjxyz — laisser vide pour utiliser le serveur (npm start) ou le lien "Envoyer par email"
+    window.CONTACT_EMAIL = 'philippe.clemente@orange.fr'; // utilisé pour le lien mailto de secours
   </script>
   <script>
     (function () {
@@ -988,12 +989,19 @@
       var formEndpoint = formspreeId
         ? 'https://formspree.io/f/' + formspreeId
         : (window.CONTACT_API_URL || '/api/contact');
+      var contactEmail = (window.CONTACT_EMAIL && String(window.CONTACT_EMAIL).trim()) ? String(window.CONTACT_EMAIL).trim() : 'philippe.clemente@orange.fr';
       var form = document.getElementById('form-contact');
       var messageEl = document.getElementById('contact-form-message');
       var submitBtn = document.getElementById('contact-submit');
 
-      function showMessage(text, isError) {
-        messageEl.textContent = text;
+      function showMessage(text, isError, htmlContent) {
+        messageEl.textContent = '';
+        messageEl.innerHTML = '';
+        if (htmlContent) {
+          messageEl.innerHTML = htmlContent;
+        } else {
+          messageEl.textContent = text;
+        }
         messageEl.className = 'contact-form-message ' + (isError ? 'error' : 'success');
         messageEl.hidden = false;
       }
@@ -1005,6 +1013,12 @@
       function validateEmail(email) {
         var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).trim());
+      }
+
+      function buildMailtoLink(nom, email, message) {
+        var subject = encodeURIComponent('[Formation SST] Demande de devis – ' + (nom || 'Contact'));
+        var body = encodeURIComponent('Nom : ' + (nom || '') + '\nEmail : ' + (email || '') + '\n\nMessage :\n' + (message || ''));
+        return 'mailto:' + contactEmail + '?subject=' + subject + '&body=' + body;
       }
 
       form.addEventListener('submit', function (e) {
@@ -1073,11 +1087,10 @@
             form.reset();
           })
           .catch(function (err) {
-            var msg = err.apiMessage || err.message || 'Une erreur est survenue. Réessayez ou contactez-nous par téléphone.';
-            if (err.message === 'service_indisponible' || err.message === 'Failed to fetch') {
-              msg = 'Impossible d\'envoyer. Vérifiez votre ID Formspree dans index.html (FORMSPREE_FORM_ID) ou contactez-nous : philippe.clemente@orange.fr / 06 14 10 55 02.';
-            }
-            showMessage(msg, true);
+            var mailtoHref = buildMailtoLink(nom, email, message);
+            var linkHtml = '<a href="' + mailtoHref.replace(/"/g, '&quot;') + '" class="contact-form-mailto-link" style="display:inline-block;margin-top:0.5rem;font-weight:600;color:inherit;text-decoration:underline;">Ouvrir mon logiciel de messagerie pour envoyer l’email</a>';
+            var msg = 'L’envoi automatique n’a pas abouti (pas d’ID Formspree ou serveur non démarré). Vous pouvez envoyer le message par email en cliquant ci‑dessous.';
+            showMessage(msg + '<br>' + linkHtml, true, true);
           })
           .finally(function () {
             submitBtn.disabled = false;
